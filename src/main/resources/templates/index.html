@@ -9,9 +9,9 @@
 <body>
 <h1>Добро пожаловать на сайт по поиску погоды!</h1>
 <h1>Введите название города</h1>
-<form method="get" action="weather">
+<form th:method="GET" th:action="@{'/weather'}">
     <label for="city"></label>
-    <input type="text" id="city" name="city" value="${city}"/>
+    <input type="text" id="city" name="city" value=""/>
     <br>
     <input type="submit" value="Find"/>
 </form>
