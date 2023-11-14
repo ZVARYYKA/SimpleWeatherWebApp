@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather in {city}</title>
+</head>
+<body>
+<h1>Погода в городе</h1>
+<h2 th:text=" ${weather.getCity()}">City</h2>
+<h2 th:text=" ${weather.getCondition()}">Condition</h2>
+<h2 th:text=" ${weather.getRegion()}">Region</h2>
+<h2 th:text=" ${weather.getTemperatureC()}">Temperature</h2>
+
+</body>
+</html>
