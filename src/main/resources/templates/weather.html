@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Weather in {city}</title>
+    <title th:text="${weather.getCity()}">Weather in city</title>
+
 </head>
 <body>
 <h1>Погода в городе</h1>

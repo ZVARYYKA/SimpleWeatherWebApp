@@ -1,0 +1,74 @@
+body {
+    font-family: "JetBrains Mono", serif;
+    margin: 0 auto;
+}
+.header {
+
+}
+.container {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.header_container {
+    display: flex;
+    height: 150px;
+
+    justify-content: center;
+    align-items: center;
+
+
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #FFF;
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.city_form {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.weather_logo {
+    max-width: 100px;
+}
+
+.header_font {
+    margin-left: 20px;
+    font-size: 25px;
+
+}
+
+.container_welcome_font {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.city_form_area {
+    border-radius: 5px;
+}
+
+.weather_form {
+margin-top: 30px;
+}
+
+.city_form_button {
+    transition: 1s;
+    padding: 25px;
+    background-color: white;
+    border-radius: 5px;
+}
+.city_form_button:hover {
+    transition: 1s;
+    color: #FFFFFF;
+    border: white;
+   background-color:  dodgerblue;
+    outline: none;
+}
