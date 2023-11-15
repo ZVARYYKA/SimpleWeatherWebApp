@@ -8,6 +8,7 @@ provides information about the weather conditions at the moment
 ## Technologies
 
 * Java
+* Gradle
 * Spring Boot
 * Spring Web
 * Lombok
