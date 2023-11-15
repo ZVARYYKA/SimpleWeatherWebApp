@@ -2,39 +2,39 @@ package com.ru.weatherwebapplication.controllers;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ru.weatherwebapplication.models.Weather;
-import org.springframework.beans.factory.annotation.Value;
+import com.ru.weatherwebapplication.services.WeatherService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping
 public class IndexController {
-    @Value("${WeatherApiKey}")
-    private String weatherApiKey;
+
+    private final WeatherService weatherService;
+
+    @Autowired
+    public IndexController(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
+
     @GetMapping()
     public String index() {
         return "index";
     }
+
     @GetMapping("/weather")
-    public String weather(@RequestParam(name = "city") String city, Model model) throws JsonProcessingException {
-        RestTemplate template = new RestTemplate();
+    public String weather(@RequestParam(name = "city") String city, Model model) {
 
-        String apiKey;
-        String json = template.getForObject(
-                "http://api.weatherapi.com/v1/current.json?key="+weatherApiKey+"&q="+city+"&aqi=no", String.class);
-        ObjectMapper objectMapper = new ObjectMapper();
-        Weather weather = objectMapper.readValue(json, Weather.class);
+        try {
+            model.addAttribute("weather", weatherService.findWeatherForCity(city));
+        } catch (JsonProcessingException e) {
+            return "error";
+        }
 
-
-
-        model.addAttribute("weather",weather);
 
         return "weather";
 
