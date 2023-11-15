@@ -1,6 +1,6 @@
-# # Simple Watcher Application
+#  Simple Weather Application
 
-## ## Description
+## Description
 
 This is my first Java project, a simple weather app. When entering a city, the site receives a request from www.weatherapi.com and
 provides information about the weather conditions at the moment
